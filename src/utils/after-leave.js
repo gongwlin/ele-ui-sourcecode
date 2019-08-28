@@ -1,6 +1,6 @@
 /**
  * Bind after-leave event for vue instance. Make sure after-leave is called in any browsers.
- *
+ * 给Vue实例绑定离开后的事件， 确保兼容各浏览器
  * @param {Vue} instance Vue instance.
  * @param {Function} callback callback of after-leave event
  * @param {Number} speed the speed of transition, default value is 300ms

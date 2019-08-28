@@ -7,3 +7,4 @@ export default function(ref) {
     }
   };
 };
+// 同名方法， mixin会先调用

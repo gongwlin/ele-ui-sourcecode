@@ -8,14 +8,14 @@ export function noop() {};
 export function hasOwn(obj, key) {
   return hasOwnProperty.call(obj, key);
 };
-
+// 把_from的属性添加到to
 function extend(to, _from) {
   for (let key in _from) {
     to[key] = _from[key];
   }
   return to;
 };
-
+// 数组转对象
 export function toObject(arr) {
   var res = {};
   for (let i = 0; i < arr.length; i++) {
@@ -73,7 +73,7 @@ export function getPropByPath(obj, path, strict) {
 export const generateId = function() {
   return Math.floor(Math.random() * 10000);
 };
-
+// 比较两个数组是否相等
 export const valueEquals = (a, b) => {
   // see: https://stackoverflow.com/questions/3115982/how-to-check-if-two-arrays-are-equal-with-javascript
   if (a === b) return true;
@@ -232,7 +232,7 @@ export function rafThrottle(fn) {
     });
   };
 }
-
+// 对象转数组
 export function objToArray(obj) {
   if (Array.isArray(obj)) {
     return obj;

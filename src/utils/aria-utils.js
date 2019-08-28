@@ -2,7 +2,7 @@ var aria = aria || {};
 
 aria.Utils = aria.Utils || {};
 
-/**
+/** 在后代中找到第一个获取焦点的元素
  * @desc Set focus on descendant nodes until the first focusable element is
  *       found.
  * @param element
@@ -20,7 +20,7 @@ aria.Utils.focusFirstDescendant = function(element) {
   return false;
 };
 
-/**
+/** 找到最后一个能获取焦点的元素
  * @desc Find the last descendant node that is focusable.
  * @param element
  *          DOM node for which to find the last focusable descendant.
@@ -38,7 +38,7 @@ aria.Utils.focusLastDescendant = function(element) {
   return false;
 };
 
-/**
+/** 尝试获取焦点
  * @desc Set Attempt to set focus on the current node.
  * @param element
  *          The node to attempt to focus on.
@@ -58,6 +58,7 @@ aria.Utils.attemptFocus = function(element) {
   return (document.activeElement === element);
 };
 
+// 判断是否能获取焦点
 aria.Utils.isFocusable = function(element) {
   if (element.tabIndex > 0 || (element.tabIndex === 0 && element.getAttribute('tabIndex') !== null)) {
     return true;
@@ -66,7 +67,7 @@ aria.Utils.isFocusable = function(element) {
   if (element.disabled) {
     return false;
   }
-
+// <a> <input /> <button>  <select> <textarea>
   switch (element.nodeName) {
     case 'A':
       return !!element.href && element.rel !== 'ignore';

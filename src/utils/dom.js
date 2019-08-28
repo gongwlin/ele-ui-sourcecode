@@ -3,15 +3,20 @@
 import Vue from 'vue';
 
 const isServer = Vue.prototype.$isServer;
-const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g;
+const SPECIAL_CHARS_REGEXP = /([\:\-\_]+(.))/g; // 特殊字符 : - _ 
 const MOZ_HACK_REGEXP = /^moz([A-Z])/;
 const ieVersion = isServer ? 0 : Number(document.documentMode);
 
 /* istanbul ignore next */
 const trim = function(string) {
+  // 去除非法字符
   return (string || '').replace(/^[\s\uFEFF]+|[\s\uFEFF]+$/g, '');
 };
 /* istanbul ignore next */
+// 1、match	匹配的子串。（对应于上述的$ &。）
+// 2、p1, p2, ... 假如replace()方法的第一个参数是一个RegExp 对象，则代表第n个括号匹配的字符串。（对应于上述的$1，$2等。）例如，如果是用 / (\a +) (\b +) / 这个来匹配，p1 就是匹配的 \a+，p2 就是匹配的 \b+。
+// 3、offset 匹配到的子字符串在原字符串中的偏移量。（比如，如果原字符串是 'abcd'，匹配到的子字符串是 'bc'，那么这个参数将会是 1）
+// string	被匹配的原字符串。
 const camelCase = function(name) {
   return name.replace(SPECIAL_CHARS_REGEXP, function(_, separator, letter, offset) {
     return offset ? letter.toUpperCase() : letter;
