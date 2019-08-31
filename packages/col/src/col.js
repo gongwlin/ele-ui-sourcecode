@@ -26,7 +26,7 @@ export default {
       while (parent && parent.$options.componentName !== 'ElRow') {
         parent = parent.$parent;
       }
-      return parent ? parent.gutter : 0;
+      return parent ? parent.gutter : 0; // 继承父元素的gutter或者0
     }
   },
   render(h) {

@@ -11,16 +11,17 @@
     componentName: 'ElContainer',
 
     props: {
-      direction: String
+      direction: String  // vertical、horizontal
     },
 
     computed: {
-      isVertical() {
+      isVertical() { // 为什么是计算属性？
         if (this.direction === 'vertical') {
           return true;
         } else if (this.direction === 'horizontal') {
           return false;
         }
+        // 如果有el-header 或者el-footer 将默认垂直布局
         return this.$slots && this.$slots.default
           ? this.$slots.default.some(vnode => {
             const tag = vnode.componentOptions && vnode.componentOptions.tag;

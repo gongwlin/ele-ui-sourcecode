@@ -25,7 +25,7 @@ export function toObject(arr) {
   }
   return res;
 };
-
+// 从路径中获取值
 export const getValueByPath = function(object, prop) {
   prop = prop || '';
   const paths = prop.split('.');
