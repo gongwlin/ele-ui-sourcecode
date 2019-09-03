@@ -1,5 +1,5 @@
 import normalizeWheel from 'normalize-wheel';
-
+// Mouse wheel normalization across multiple multiple browsers.  统一滚轮事件
 const isFirefox = typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
 
 const mousewheel = function(element, callback) {

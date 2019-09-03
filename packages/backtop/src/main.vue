@@ -1,3 +1,4 @@
+<!-- 回到顶部 -->
 <template>
   <transition name="el-fade-in">
     <div
@@ -16,7 +17,7 @@
 </template>
 
 <script>
-import throttle from 'throttle-debounce/throttle';
+import throttle from 'throttle-debounce/throttle'; // 节流，定时执行一次
 
 export default {
   name: 'ElBacktop',
@@ -26,7 +27,7 @@ export default {
       type: Number,
       default: 200
     },
-    target: [String],
+    target: [String],  // 触发滚动的对象
     right: {
       type: Number,
       default: 40
@@ -62,7 +63,11 @@ export default {
 
   methods: {
     init() {
-      this.container = document;
+      // diff
+
+      // docuemnt.body => <body>
+      // document.documentElement=> <html>
+      this.container = document; // 默认是文档
       this.el = document.documentElement;
       if (this.target) {
         this.el = document.querySelector(this.target);
@@ -72,6 +77,7 @@ export default {
         this.container = this.el;
       }
     },
+    // 大于显示区域显示返回顶部
     onScroll() {
       const scrollTop = this.el.scrollTop;
       this.visible = scrollTop >= this.visibilityHeight;
@@ -80,6 +86,7 @@ export default {
       this.scrollToTop();
       this.$emit('click', e);
     },
+    // 滚动到顶部
     scrollToTop() {
       let el = this.el;
       let step = 0;
