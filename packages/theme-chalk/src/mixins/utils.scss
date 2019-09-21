@@ -1,9 +1,10 @@
+// 是否可选  value: none/ 
 @mixin utils-user-select($value) {
   -moz-user-select: $value;
   -webkit-user-select: $value;
   -ms-user-select: $value;
 }
-
+// 清除浮动
 @mixin utils-clearfix {
   $selector: &;
 
@@ -18,7 +19,7 @@
     }
   }
 }
-
+// 垂直居中
 @mixin utils-vertical-center {
   $selector: &;
 
@@ -31,7 +32,7 @@
     }
   }
 }
-
+// 溢出显示省略号
 @mixin utils-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

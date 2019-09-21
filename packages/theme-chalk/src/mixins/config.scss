@@ -1,4 +1,4 @@
-$namespace: 'el';
-$element-separator: '__';
-$modifier-separator: '--';
-$state-prefix: 'is-';
+$namespace: 'el'; // 命名空间
+$element-separator: '__';  // 元素分割符号
+$modifier-separator: '--';  // 修改分隔符号 
+$state-prefix: 'is-';  // 状态用is最为前缀
