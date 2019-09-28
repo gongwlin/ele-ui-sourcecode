@@ -52,37 +52,37 @@ export default {
   name: 'ElDrawer',
   mixins: [Popup, emitter, Migrating],
   props: {
-    appendToBody: {
+    appendToBody: {  // 添加到body
       type: Boolean,
       default: true
     },
-    beforeClose: {
+    beforeClose: {  // 关闭前执行的函数
       type: Function
     },
-    customClass: {
+    customClass: { // 自定义类名
       type: String,
       default: ''
     },
-    destroyOnClose: {
+    destroyOnClose: { // 关闭时销毁元素
       type: Boolean,
       default: false
     },
-    modal: {
+    modal: { // 模态窗
       type: Boolean,
       default: true
     },
-    direction: {
+    direction: { // 方向
       type: String,
       default: 'rtl',
       validator(val) {
         return ['ltr', 'rtl', 'ttb', 'btt'].indexOf(val) !== -1;
       }
     },
-    showClose: {
+    showClose: { // 显示关闭按钮
       type: Boolean,
       default: true
     },
-    size: {
+    size: { // 弹窗大小
       type: String,
       default: '30%'
     },
@@ -93,7 +93,7 @@ export default {
     visible: {
       type: Boolean
     },
-    wrapperClosable: {
+    wrapperClosable: { // 模态可点击关闭
       type: Boolean,
       default: true
     }
