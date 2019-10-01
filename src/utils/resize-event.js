@@ -3,7 +3,7 @@ import ResizeObserver from 'resize-observer-polyfill';
 const isServer = typeof window === 'undefined';
 
 /* istanbul ignore next */
-const resizeHandler = function(entries) {
+const resizeHandler = function(entries) { // resize事件处理函数
   for (let entry of entries) {
     const listeners = entry.target.__resizeListeners__ || [];
     if (listeners.length) {

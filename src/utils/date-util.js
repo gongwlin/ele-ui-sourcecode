@@ -179,7 +179,7 @@ export const getRangeMinutes = function(ranges, hour) {
   return minutes;
 };
 
-export const range = function(n) {
+export const range = function(n) { // 0 ~ n-1
   // see https://stackoverflow.com/questions/3746725/create-a-javascript-array-containing-1-n
   return Array.apply(null, {length: n}).map((_, n) => n);
 };
@@ -200,7 +200,7 @@ export const modifyWithTimeString = (date, time) => {
   return modifyTime(date, time.getHours(), time.getMinutes(), time.getSeconds());
 };
 
-export const clearTime = function(date) {
+export const clearTime = function(date) { // 清除时间，只剩下年月日
   return new Date(date.getFullYear(), date.getMonth(), date.getDate());
 };
 
