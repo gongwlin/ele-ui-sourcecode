@@ -1,6 +1,6 @@
 import { hasOwn } from 'element-ui/src/utils/util';
 
-const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;
+const RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;  // 匹配%{}或者{}格式的变量
 /**
  *  String format template
  *  - Inspired:
@@ -17,11 +17,11 @@ export default function(Vue) {
    */
 
   function template(string, ...args) {
-    if (args.length === 1 && typeof args[0] === 'object') {
+    if (args.length === 1 && typeof args[0] === 'object') { // 参数是个对象
       args = args[0];
     }
 
-    if (!args || !args.hasOwnProperty) {
+    if (!args || !args.hasOwnProperty) { // 默认是空对象
       args = {};
     }
 

@@ -178,7 +178,7 @@ export function setStyle(element, styleName, value) {
   }
 };
 
-export const isScroll = (el, vertical) => {
+export const isScroll = (el, vertical) => { // 能否滚动
   if (isServer) return;
 
   const determinedDirection = vertical !== null || vertical !== undefined;
@@ -191,7 +191,7 @@ export const isScroll = (el, vertical) => {
   return overflow.match(/(scroll|auto)/);
 };
 
-export const getScrollContainer = (el, vertical) => {
+export const getScrollContainer = (el, vertical) => { // 获取滚动容器
   if (isServer) return;
 
   let parent = el;
@@ -208,13 +208,13 @@ export const getScrollContainer = (el, vertical) => {
   return parent;
 };
 
-export const isInContainer = (el, container) => {
+export const isInContainer = (el, container) => { // 是否在容器内
   if (isServer || !el || !container) return false;
 
   const elRect = el.getBoundingClientRect();
   let containerRect;
 
-  if ([window, document, document.documentElement, null, undefined].includes(container)) {
+  if ([window, document, document.documentElement, null, undefined].includes(container)) { // 容器为window
     containerRect = {
       top: 0,
       right: window.innerWidth,

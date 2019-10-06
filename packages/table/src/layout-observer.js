@@ -1,3 +1,4 @@
+// 作为mixin
 export default {
   created() {
     this.tableLayout.addObserver(this);

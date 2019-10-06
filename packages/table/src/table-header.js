@@ -5,6 +5,7 @@ import FilterPanel from './filter-panel.vue';
 import LayoutObserver from './layout-observer';
 import { mapStates } from './store/helper';
 
+// 获取所有列
 const getAllColumns = (columns) => {
   const result = [];
   columns.forEach((column) => {
@@ -18,6 +19,7 @@ const getAllColumns = (columns) => {
   return result;
 };
 
+// 转换成行
 const convertToRows = (originColumns) => {
   let maxLevel = 1;
   const traverse = (column, parent) => {
@@ -344,7 +346,7 @@ export default {
       if (this.$isServer) return;
       if (column.children && column.children.length > 0) return;
       /* istanbul ignore if */
-      if (this.draggingColumn && this.border) {
+      if (this.draggingdraggingColumn && this.border) {
         this.dragging = true;
 
         this.$parent.resizeProxyVisible = true;
@@ -368,8 +370,8 @@ export default {
         const resizeProxy = table.$refs.resizeProxy;
         resizeProxy.style.left = this.dragState.startLeft + 'px';
 
-        document.onselectstart = function() { return false; };
-        document.ondragstart = function() { return false; };
+        document.onselectstart = function() { return false; }; // 不可选
+        document.ondragstart = function() { return false; }; // 不可拖拽
 
         const handleMouseMove = (event) => {
           const deltaLeft = event.clientX - this.dragState.startMouseLeft;

@@ -1,6 +1,6 @@
 import ResizeObserver from 'resize-observer-polyfill';
 
-const isServer = typeof window === 'undefined';
+const isServer = typeof window === 'undefined'; // Good code
 
 /* istanbul ignore next */
 const resizeHandler = function(entries) { // resize事件处理函数

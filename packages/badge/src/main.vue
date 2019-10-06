@@ -25,8 +25,8 @@ export default {
   props: {
     value: [String, Number],
     max: Number,
-    isDot: Boolean,
-    hidden: Boolean,
+    isDot: Boolean, // 小红点
+    hidden: Boolean, // 隐藏 badge
     type: {
       type: String,
       validator(val) {

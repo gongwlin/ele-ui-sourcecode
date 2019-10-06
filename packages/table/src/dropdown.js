@@ -21,7 +21,7 @@ export default {
 
   close(instance) {
     var index = dropdowns.indexOf(instance);
-    if (index !== -1) {
+    if (index !== -1) { // 有则删除
       dropdowns.splice(instance, 1);
     }
   }

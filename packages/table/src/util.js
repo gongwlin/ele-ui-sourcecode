@@ -1,5 +1,5 @@
 import { getValueByPath } from 'element-ui/src/utils/util';
-
+// 获取单元格
 export const getCell = function(event) {
   let cell = event.target;
 
@@ -16,7 +16,7 @@ export const getCell = function(event) {
 const isObject = function(obj) {
   return obj !== null && typeof obj === 'object';
 };
-
+// 排序函数
 export const orderBy = function(array, sortKey, reverse, sortMethod, sortBy) {
   if (!sortKey && !sortMethod && (!sortBy || Array.isArray(sortBy) && !sortBy.length)) {
     return array;
@@ -73,7 +73,7 @@ export const orderBy = function(array, sortKey, reverse, sortMethod, sortBy) {
     return order * reverse;
   }).map(item => item.value);
 };
-
+// 通过id获取列
 export const getColumnById = function(table, columnId) {
   let column = null;
   table.columns.forEach(function(item) {
@@ -83,7 +83,7 @@ export const getColumnById = function(table, columnId) {
   });
   return column;
 };
-
+// 通过key获取列
 export const getColumnByKey = function(table, columnKey) {
   let column = null;
   for (let i = 0; i < table.columns.length; i++) {
@@ -95,7 +95,7 @@ export const getColumnByKey = function(table, columnKey) {
   }
   return column;
 };
-
+// 通过单元格类名获取列
 export const getColumnByCell = function(table, cell) {
   const matches = (cell.className || '').match(/el-table_[^\s]+/gm);
   if (matches) {
@@ -149,7 +149,7 @@ export function mergeOptions(defaults, config) {
   }
   return options;
 }
-
+// 解析宽度
 export function parseWidth(width) {
   if (width !== undefined) {
     width = parseInt(width, 10);
@@ -169,13 +169,13 @@ export function parseMinWidth(minWidth) {
   }
   return minWidth;
 };
-
+// 解析高度
 export function parseHeight(height) {
   if (typeof height === 'number') {
     return height;
   }
   if (typeof height === 'string') {
-    if (/^\d+(?:px)?$/.test(height)) {
+    if (/^\d+(?:px)?$/.test(height)) {  // 向前断言
       return parseInt(height, 10);
     } else {
       return height;
@@ -194,7 +194,7 @@ export function compose(...funcs) {
   }
   return funcs.reduce((a, b) => (...args) => a(b(...args)));
 }
-
+// 切换行状态 添加/删除
 export function toggleRowStatus(statusArr, row, newVal) {
   let changed = false;
   const index = statusArr.indexOf(row);

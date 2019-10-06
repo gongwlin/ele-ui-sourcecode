@@ -9,17 +9,17 @@ import {
   getScrollContainer
 } from 'element-ui/src/utils/dom';
 
-const getStyleComputedProperty = (element, property) => {
+const getStyleComputedProperty = (element, property) => { // 获取元素的计算样式
   if (element === window) {
     element = document.documentElement;
   }
 
-  if (element.nodeType !== 1) {
+  if (element.nodeType !== 1) { // 不是元素节点,即不是标签
     return [];
   }
   // NOTE: 1 DOM access here
   const css = window.getComputedStyle(element, null);
-  return property ? css[property] : css;
+  return property ? css[property] : css; // 传入property则返回property的值，否则返回所有的值
 };
 
 const entries = (obj) => {
@@ -42,6 +42,10 @@ const getClientHeight = el => {
 };
 
 const scope = 'ElInfiniteScroll';
+// infinite-scroll-delay	节流时延，单位为ms	number	-	200
+// infinite-scroll-distance	触发加载的距离阈值，单位为px	number	-	0
+// infinite-scroll-disabled	是否禁用	boolean	-	false
+// infinite-scroll-immediate	是否立即执行加载方法，以防初始状态下内容无法撑满容器。	boolean	-	true
 const attributes = {
   delay: {
     type: Number,
@@ -63,7 +67,7 @@ const attributes = {
 
 const getScrollOptions = (el, vm) => {
   if (!isHtmlElement(el)) return {};
-
+// attributes = [[delay, 200],...]
   return entries(attributes).reduce((map, [key, option]) => {
     const { type, default: defaultValue } = option;
     let value = el.getAttribute(`infinite-scroll-${key}`);
@@ -88,7 +92,7 @@ const getElementTop = el => el.getBoundingClientRect().top;
 
 const handleScroll = function(cb) {
   const { el, vm, container, observer } = this[scope];
-  const { distance, disabled } = getScrollOptions(el, vm);
+  const { distance, disabled } = getScrollOptions(el, vm); // 从使用时传入的参数获取
 
   if (disabled) return;
 
@@ -117,10 +121,10 @@ const handleScroll = function(cb) {
 export default {
   name: 'InfiniteScroll',
   inserted(el, binding, vnode) {
-    const cb = binding.value;
+    const cb = binding.value; // v-infinite-scroll='fn'
 
     const vm = vnode.context;
-    // only include vertical scroll
+    // only include vertical scroll 只包含垂直滚动
     const container = getScrollContainer(el, true);
     const { delay, immediate } = getScrollOptions(el, vm);
     const onScroll = throttle(delay, handleScroll.bind(el, cb));

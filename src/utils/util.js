@@ -43,7 +43,7 @@ export const getValueByPath = function(object, prop) {
   }
   return result;
 };
-
+// wonderful fn
 export function getPropByPath(obj, path, strict) {
   let tempObj = obj;
   path = path.replace(/\[(\w+)\]/g, '.$1');
@@ -220,7 +220,7 @@ export const isEmpty = function(val) {
 
   return false;
 };
-
+// requestAnimationFrame节流
 export function rafThrottle(fn) {
   let locked = false;
   return function(...args) {
