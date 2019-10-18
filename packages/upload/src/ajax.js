@@ -27,7 +27,29 @@ function getBody(xhr) {
     return text;
   }
 }
-
+/**
+ * 
+ * @param {*} option 
+ * const options = {
+        headers: this.headers,
+        withCredentials: this.withCredentials,
+        file: rawFile,
+        data: this.data,
+        filename: this.name,
+        action: this.action,
+        onProgress: e => {
+          this.onProgress(e, rawFile);
+        },
+         onSuccess: res => {
+          this.onSuccess(res, rawFile);
+          delete this.reqs[uid];
+        },
+        onError: err => {
+          this.onError(err, rawFile);
+          delete this.reqs[uid];
+        }
+    }
+ */
 export default function upload(option) {
   if (typeof XMLHttpRequest === 'undefined') {
     return;
